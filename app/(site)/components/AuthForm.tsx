@@ -2,9 +2,11 @@
 
 import { useCallback, useState } from "react";
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
+import { BsGithub, BsGoogle } from 'react-icons/bs';
 
 import Input from "@/app/components/inputs/Input";
 import Button from "@/app/components/Button";
+import AuthSocialButton from "./AuthSocialButton";
 
 type Variant = 'LOGIN' | 'REGISTER';
 
@@ -53,11 +55,32 @@ const AuthForm = () => {
                     className="space-y-6"
                     onSubmit={handleSubmit(onSubmit)}
                 >
+                    {/* Form Inputs */}
                     {variant === 'REGISTER' && (
-                        <Input id="name" label="Name" register={register} errors={errors} />
+                        <Input
+                            id="name"
+                            label="Name"
+                            register={register}
+                            errors={errors}
+                            disabled={isLoading}
+                        />
                     )}
-                    <Input id="email" label="Email address" type="email" register={register} errors={errors} />
-                    <Input id="password" label="Password" type="password" register={register} errors={errors} />
+                    <Input
+                        id="email"
+                        label="Email address"
+                        type="email"
+                        register={register}
+                        errors={errors}
+                        disabled={isLoading}
+                    />
+                    <Input
+                        id="password"
+                        label="Password"
+                        type="password"
+                        register={register}
+                        errors={errors}
+                        disabled={isLoading}
+                    />
 
                     <section>
                         <Button
@@ -71,6 +94,7 @@ const AuthForm = () => {
                 </form>
 
                 <div className="mt-6">
+                    {/* Line Group */}
                     <div className="relative">
                         <div className="absolute inset-0 flex items-center">
                             <div className="w-full border-t border-gray-300" />
@@ -80,6 +104,28 @@ const AuthForm = () => {
                                 or continue with
                             </span>
                         </div>
+                    </div>
+
+                    {/* Social Logins */}
+                    <div className="mt-6 flex gap-2">
+                        <AuthSocialButton
+                            icon={BsGithub}
+                            onClick={() => socialAction('github')}
+                        />
+                        <AuthSocialButton
+                            icon={BsGoogle}
+                            onClick={() => socialAction('google')}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex justify-center gap-2 text-sm mt-6 px-2 text-gray-500">
+                    <div>{variant === 'LOGIN' ? 'New To ConnectX?' : 'Already have an account'}</div>
+                    <div
+                        className="underline cursor-pointer"
+                        onClick={toggleVariant}
+                    >
+                        {variant === 'LOGIN' ? 'Create an account' : 'Login'}
                     </div>
                 </div>
             </div>
