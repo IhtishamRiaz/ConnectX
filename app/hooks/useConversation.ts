@@ -1,7 +1,7 @@
 import { useParams } from "next/navigation";
 import { useMemo } from "react";
 
-const useConversations = () => {
+const useConversation = () => {
   const params = useParams();
 
   const conversationId = useMemo(() => {
@@ -12,7 +12,7 @@ const useConversations = () => {
   }, [params?.conversationId]);
 
   const isOpen = useMemo(() => {
-    !!conversationId;
+    return !!conversationId;
   }, [conversationId]);
 
   return useMemo(
@@ -24,4 +24,4 @@ const useConversations = () => {
   );
 };
 
-export default useConversations;
+export default useConversation;
