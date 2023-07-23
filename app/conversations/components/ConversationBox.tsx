@@ -41,7 +41,7 @@ const ConversationBox = ({
       return false;
     }
 
-    const seenArray = lastMessage || [];
+    const seenArray = lastMessage.seen || [];
 
     if (!userEmail) {
       return false;

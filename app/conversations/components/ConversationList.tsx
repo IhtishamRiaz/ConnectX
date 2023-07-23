@@ -47,7 +47,7 @@ const ConversationList = ({
              p-2
              bg-gray-100
              text-gray-600
-             cursor-pointer
+             cursor-pointer`
              hover:opacity-75
              transition
             "
