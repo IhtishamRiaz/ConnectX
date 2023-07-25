@@ -33,7 +33,7 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerProps): JSX.Eleme
 
     const createdDate = useMemo(() => {
         return format(new Date(data.createdAt), 'PP');
-    }, [otherUser.createdAt]);
+    }, [data.createdAt]);
 
     const title = useMemo(() => {
         return data.name || otherUser.name;
@@ -44,7 +44,7 @@ const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerProps): JSX.Eleme
             return `${data.users.length} members`;
         }
         return isActive ? 'Active' : 'Offline';
-    }, [data]);
+    }, [data, isActive]);
 
     return (
         <>
