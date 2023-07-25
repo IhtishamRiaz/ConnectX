@@ -40,9 +40,9 @@ const MobileItem = ({
       w-full
       p-4
       text-gray-400
-      hover:text-black
+      hover:text-purple-600
       hover:bg-gray-100`,
-        active && "text-black bg-gray-100"
+        active && "text-purple-600 bg-gray-100"
       )}
     >
       <Icon className="h-5 w-5" />

@@ -91,11 +91,11 @@ const ConversationBox = ({
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">
-            <p className="text-md font-medium text-gray-900">
+            <p className="truncate text-md font-medium text-gray-900">
               {data?.name || otherUser?.name}
             </p>
             {lastMessage?.createdAt && (
-              <p className="text-xs text-gray-400 font-light">
+              <p className="text-xs text-gray-400 font-light basis-14 shrink-0">
                 {format(new Date(lastMessage?.createdAt), "p")}
               </p>
             )}

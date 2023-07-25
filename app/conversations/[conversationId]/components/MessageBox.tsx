@@ -38,8 +38,8 @@ const MessageBox = ({ data, isLast }: MessageBoxProps): JSX.Element => {
 
   const message = clsx(
     "text-sm w-fit overflow-hidden",
-    isOwn ? "bg-purple-500 text-white" : "bg-gray-200 font-medium",
-    data?.image ? "rounded-md p-0" : "rounded-full py-2 px-3"
+    isOwn ? `${data?.image ? 'bg-gray-200' : 'bg-purple-500'} text-white` : "bg-gray-200 font-medium",
+    data?.image ? "rounded-md p-0" : "rounded-2xl py-2 px-3"
   )
 
 
@@ -62,7 +62,7 @@ const MessageBox = ({ data, isLast }: MessageBoxProps): JSX.Element => {
           </div>
         </div>
 
-        {/* Message Image */}
+        {/* Message Body */}
         <div className={message}>
           <ImageModal
             src={data.image}

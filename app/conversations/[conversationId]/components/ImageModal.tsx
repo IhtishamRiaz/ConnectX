@@ -17,10 +17,11 @@ const ImageModal = ({ onClose, isOpen, src }: ImageModalProps) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
-            <div className="w-80 h-80">
+            <div className="w-80 h-80 flex items-center justify-center">
                 <Image
                     alt="Image"
                     fill
+                    objectFit={'contain'}
                     src={src}
                 />
             </div>

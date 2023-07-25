@@ -116,9 +116,9 @@ const ConversationList = ({ initialItems, users }: ConversationListProps): JSX.E
              rounded-full
              p-2
              bg-gray-100
-             text-gray-600
+             text-purple-500
              cursor-pointer
-             hover:opacity-75
+             hover:text-purple-600
              transition
             "
             >
