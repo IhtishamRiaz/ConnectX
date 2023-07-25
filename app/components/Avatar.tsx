@@ -2,12 +2,16 @@
 
 import { User } from "@prisma/client";
 import Image from "next/image";
+import useActiveList from "../hooks/useActiveList";
 
 interface AvatarProps {
   user?: User;
 }
 
 const Avatar = ({ user }: AvatarProps): JSX.Element => {
+  const { members } = useActiveList();
+  const isActive = members.indexOf(user?.email!) !== -1;
+
   return (
     <div className="relative">
       <div
@@ -28,8 +32,9 @@ const Avatar = ({ user }: AvatarProps): JSX.Element => {
           fill
         />
       </div>
-      <span
-        className="
+      {isActive && (
+        <span
+          className="
          absolute
          top-0
          right-0
@@ -43,7 +48,8 @@ const Avatar = ({ user }: AvatarProps): JSX.Element => {
          ring-2
          ring-white
         "
-      />
+        />
+      )}
     </div>
   );
 };
